@@ -1,0 +1,19 @@
+#include <Arduino.h>
+#include <motor.h>
+
+#define TOLERANCE .15
+
+
+///////////////////////////////////////////////////////////////////////////////
+// MOTOR STUFFS
+motor::motor( int pin) {
+	motor::_pin = pin;
+	pinMode(pin, OUTPUT);
+	motor::voltage = 0;
+}
+
+void motor::setMotorSpeed( int mvolt) {
+	motor::voltage = mvolt;
+	digitalWrite( motor::_pin, motor::voltage);
+}
+
